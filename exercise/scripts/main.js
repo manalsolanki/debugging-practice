@@ -17,25 +17,27 @@ window.addEventListener('DOMContentLoaded', function() {
         selectedCards.push(card);
       }
 
-      // If we have selected two cards, see if they match.
-      if (selectedCards.length === 2) {
-        var card1 = selectedCards[0];
-        var card2 = selectedCards[1];
+      setTimeout(() => {
+        // If we have selected two cards, see if they match.
+        if (selectedCards.length === 2) {
+          var card1 = selectedCards[0];
+          var card2 = selectedCards[1];
 
-        // If the cards match, add them to the collection of matched cards and
-        // apply the correct CSS class.
-        if (card1.innerText === card2.innerText) {
-          matchedCards.push(card1, card2);
-          card1.classList.add('is-matched');
-          card2.classList.add('is-matched');
+          // If the cards match, add them to the collection of matched cards and
+          // apply the correct CSS class.
+          if (card1.innerText === card2.innerText) {
+            matchedCards.push(card1, card2);
+            card1.classList.add('is-matched');
+            card2.classList.add('is-matched');
+          }
+
+          // Regardless of whether or not the cards match, deselect them and reset
+          // the collection of matched cards.
+          card1.classList.remove('is-selected');
+          card2.classList.remove('is-selected');
+          selectedCards = [];
         }
-
-        // Regardless of whether or not the cards match, deselect them and reset
-        // the collection of matched cards.
-        card1.classList.remove('is-selected');
-        card3.classList.remove('is-selected');
-        selectedCards = [];
-      }
+      }, 1000);
 
       // If we've matched all the cards, display a message.
       if (matchedCards.length > cards.length) {
