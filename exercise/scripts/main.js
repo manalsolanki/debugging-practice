@@ -37,12 +37,13 @@ window.addEventListener('DOMContentLoaded', function() {
           card2.classList.remove('is-selected');
           selectedCards = [];
         }
-      }, 1000);
-
-      // If we've matched all the cards, display a message.
-      if (matchedCards.length > cards.length) {
-        alert('You matched all the cards, nice job!');
-      }
+        setTimeout(() =>{
+          // If we've matched all the cards, display a message.
+          if (matchedCards.length == cards.length) {
+            alert('You matched all the cards, nice job!');
+          }
+        },1000);
+      }, 500);
     });
   });
 });

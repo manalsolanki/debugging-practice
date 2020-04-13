@@ -57,8 +57,10 @@ the background colour to white.
 .card.is-selected
 {
   background: #fff;
+  color:red;
 }
 
 .card.is-matched {
   background-color:lightcyan;
+  
 }
